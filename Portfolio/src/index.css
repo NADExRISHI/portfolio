@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1.1rem;
+  --accent: #8b5cf6;
+  --accent-hover: #a78bfa;
+  --accent-muted: rgba(139, 92, 246, 0.18);
+  /* other variables */
+  --brand-blue: #3d6df2;
+}
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: transparent;
+  --surface: rgba(255, 255, 255, 0.07);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --border: rgba(255, 255, 255, 0.10);
+
+  --color-background: #08040f;
+  --color-foreground: var(--text-primary);
+  --color-card: rgba(255, 255, 255, 0.07);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: rgba(255, 255, 255, 0.07);
+  --color-popover-foreground: var(--text-primary);
+  --color-primary: var(--accent);
+  --color-primary-foreground: #0b0b0f;
+  --color-secondary: rgba(255, 255, 255, 0.05);
+  --color-secondary-foreground: #d1d1db;
+  --color-muted: rgba(255, 255, 255, 0.05);
+  --color-muted-foreground: var(--text-muted);
+  --color-accent: var(--accent-muted);
+  --color-accent-foreground: var(--text-primary);
+  --color-destructive: #7f1d1d;
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--brand-blue);
+
+  --plum-900: var(--bg);
+  --plum-700: var(--text-secondary);
+  --plum-500: var(--accent);
+  --plum-100: var(--surface);
+}
+
+/* Dark mode: white card surfaces need dark text */
+[data-theme="dark"] .dark-card {
+  background-color: rgba(255, 255, 255, 0.90);
+  --text-primary: #0f0f14;
+  --text-secondary: rgba(10, 10, 20, 0.82);
+  --text-muted: rgba(10, 10, 20, 0.55);
+  --border: rgba(0, 0, 0, 0.07);
+  --accent: #6d28d9;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f5f9;
+  --surface: #ffffff;
+  --text-primary: #0f0f14;
+  --text-secondary: rgba(0, 0, 0, 0.8);
+  --text-muted: rgba(0, 0, 0, 0.55);
+  --border: rgba(0, 0, 0, 0.06);
+
+  --color-background: var(--bg);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--text-primary);
+  --color-primary: var(--accent);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f3f3f3;
+  --color-secondary-foreground: #333333;
+  --color-muted: #f3f3f3;
+  --color-muted-foreground: var(--text-muted);
+  --color-accent: var(--accent-muted);
+  --color-accent-foreground: var(--text-primary);
+  --color-destructive: #991b1b;
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--brand-blue);
+
+  --plum-900: var(--text-primary);
+  --plum-700: var(--text-secondary);
+  --plum-500: var(--accent);
+  --plum-100: var(--surface);
+}
+
+
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body,
+  div,
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a,
+  button,
+  section,
+  header,
+  nav {
+    transition: background-color 200ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, fill 200ms ease, stroke 200ms ease;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text-secondary);
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: "Fraunces", "Times New Roman", serif;
+  }
+}

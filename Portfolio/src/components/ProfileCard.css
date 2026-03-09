@@ -1,0 +1,199 @@
+/* ═══════════════════════════════════════════════════
+   ProfileCard  —  react-bits style
+   ═══════════════════════════════════════════════════ */
+
+/* Wrapper — provides perspective + positioning ctx for glow */
+.pc-card-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 900px;
+}
+
+/* ── Behind glow blob ─────────────────────────────── */
+.pc-behind-glow {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+    transition: left 0.05s linear, top 0.05s linear;
+}
+
+/* ── The card itself ──────────────────────────────── */
+.pc-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    border-radius: 24px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: perspective(900px) rotateX(0deg) rotateY(0deg) scale(1);
+    transition: transform 0.08s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background: var(--surface, #1a1a2e);
+    border: 1px solid rgba(139, 92, 246, 0.18);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.3),
+        0 1px 0 rgba(255, 255, 255, 0.06) inset;
+    z-index: 1;
+}
+
+/* ── Icon / pattern repeating background ──────────── */
+.pc-icon-pattern {
+    position: absolute;
+    inset: 0;
+    background-repeat: repeat;
+    background-size: 80px 80px;
+    opacity: 0.07;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ── Inner gradient overlay ───────────────────────── */
+.pc-inner-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 24px;
+}
+
+/* ── Ambient edge glow ────────────────────────────── */
+.pc-ambient {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(139, 92, 246, 0.10) 0%,
+            transparent 50%,
+            rgba(168, 85, 247, 0.07) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ── Shine sweep on hover ─────────────────────────── */
+.pc-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.10),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 24px;
+}
+
+.pc-card:hover .pc-shine {
+    opacity: 1;
+}
+
+/* ── Content layer ────────────────────────────────── */
+.pc-inner {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 32px 24px 28px;
+    height: 100%;
+}
+
+/* ── Avatar ───────────────────────────────────────── */
+.pc-avatar-wrap {
+    position: relative;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 3px solid rgba(139, 92, 246, 0.50);
+    box-shadow:
+        0 0 0 5px rgba(139, 92, 246, 0.10),
+        0 8px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.pc-avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+}
+
+/* Online badge */
+.pc-badge {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #22c55e;
+    border: 2px solid var(--surface, #1a1a2e);
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+}
+
+/* ── Name / handle / title ────────────────────────── */
+.pc-name {
+    font-family: var(--font-display, 'Inter', sans-serif);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary, #fff);
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-top: 4px;
+}
+
+.pc-handle {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(139, 92, 246, 0.9);
+    letter-spacing: 0.12em;
+    text-align: center;
+    margin-top: -4px;
+}
+
+.pc-title-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    letter-spacing: 0.03em;
+}
+
+/* ── Contact button ───────────────────────────────── */
+.pc-btn {
+    margin-top: 8px;
+    padding: 9px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(139, 92, 246, 0.45);
+    background: rgba(139, 92, 246, 0.14);
+    color: rgba(139, 92, 246, 0.95);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+}
+
+.pc-btn:hover {
+    background: rgba(139, 92, 246, 0.88);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.55);
+    transform: translateY(-2px);
+}
