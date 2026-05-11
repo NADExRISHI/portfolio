@@ -131,7 +131,7 @@
 
 
 :root, body {
-  cursor: none;
+  /* cursor: none; */
 }
 
 ::selection {
@@ -187,6 +187,14 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: -0.02em;
+  }
+
+  .font-serif {
+    font-family: "Cormorant Garamond", serif !important;
+  }
+
+  .font-signature {
+    font-family: "La Belle Aurore", cursive !important;
   }
 
   .racing-gradient {
