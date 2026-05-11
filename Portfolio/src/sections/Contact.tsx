@@ -51,7 +51,7 @@ export function ContactBlock() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="group relative overflow-hidden rounded-3xl border border-border/50 bg-background/45 p-6 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 sm:p-8">
+            <Card className="group relative overflow-hidden rounded-[2.5rem] border border-border/50 bg-background/45 p-6 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 sm:p-8">
               <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.04] via-transparent to-transparent" />
               <form
                 action="mailto:adityavpatil818@gmail.com"
@@ -137,7 +137,7 @@ export function ContactBlock() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
                 >
-                  <Card className="group relative overflow-hidden rounded-3xl border border-border/50 bg-background/45 p-6 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 sm:p-8">
+                  <Card className="group relative overflow-hidden rounded-[2.5rem] border border-border/50 bg-background/45 p-6 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 sm:p-8">
                     <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.04] via-transparent to-transparent" />
                     <a
                       href={info.href}

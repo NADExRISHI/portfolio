@@ -15,14 +15,14 @@
 - [x] **Lighthouse Audit**: Run a full audit and fix any remaining performance bottlenecks.
 
 ## ✨ Phase 3: Visual Polish & Micro-Interactions
-- [ ] **Typography Refinement**: Add `tracking-[0.04em]` to the loader text for a more elegant look.
-- [ ] **Focus States**: Add `:focus-visible` outlines for better keyboard navigation visibility.
-- [ ] **Scroll Cue**: Add a subtle "Scroll Down" arrow in the experience section.
-- [ ] **Glassmorphism Hover**: Upgrade cards to use `backdrop-filter: blur(8px)` on hover.
+- [x] **Typography Refinement**: Add `tracking-[0.04em]` to the loader text for a more elegant look.
+- [x] **Focus States**: Add `:focus-visible` outlines for better keyboard navigation visibility.
+- [x] **Scroll Cue**: Add a subtle "Scroll Down" arrow in the experience section.
+- [x] **Glassmorphism Hover**: Upgrade cards to use `backdrop-filter: blur(8px)` on hover.
 
 ## 🎨 Phase 4: Creative "Art" Add-Ons (Standout Features)
-- [ ] **Custom Cursor**: Implement a custom circle cursor with a faint particle trail.
-- [ ] **Interactive Signature**: Add a fluid ink-spill effect to the "Building the Future" badge.
+- [x] **Custom Cursor**: Implement a custom 'dot' cursor that expands on hover.
+- [x] **Signature Animation**: Add a hand-drawn underline animation to the badge.
 - [ ] **3D Helix Nav**: (Optional) Add a Three.js orbiting helix for section navigation.
 - [ ] **Ambient Soundscape**: (Optional) Add a low-volume generative background audio.
 

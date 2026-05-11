@@ -130,6 +130,20 @@
 
 
 
+:root, body {
+  cursor: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

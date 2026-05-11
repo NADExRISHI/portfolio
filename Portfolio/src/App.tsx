@@ -257,6 +257,7 @@ const BIO_PARAGRAPHS = [
 
 import BorderGlow from "./components/BorderGlow";
 import { ContactBlock } from "./sections/Contact";
+import { CustomCursor } from "./components/CustomCursor";
 
 const Background = () => {
   return (
@@ -313,7 +314,8 @@ export default function App() {
   const item = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } };
 
   return (
-    <div className="relative min-h-svh overflow-hidden text-[color:var(--text-secondary)] bg-[color:var(--bg)]">
+    <div className="relative min-h-svh overflow-hidden text-[color:var(--text-secondary)] bg-[color:var(--bg)] cursor-none">
+      <CustomCursor />
       <div className="grain-overlay" />
       <AnimatePresence mode="wait">
         {isLoading && (
@@ -328,24 +330,24 @@ export default function App() {
             className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white"
           >
             <div className="relative">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="font-serif text-8xl font-medium text-black/5 tracking-tight"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="font-serif text-8xl font-medium text-black/5 tracking-[0.04em]"
+                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                >
                 Aditya
               </motion.div>
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-                className="absolute top-0 left-0 overflow-hidden whitespace-nowrap font-serif text-8xl font-medium text-accent tracking-tight"
-                style={{ 
-                  fontFamily: "'Cormorant Garamond', serif",
-                  clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-                }}
-              >
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 2, ease: "easeInOut" }}
+                  className="absolute top-0 left-0 overflow-hidden whitespace-nowrap font-serif text-8xl font-medium text-accent tracking-[0.04em]"
+                  style={{ 
+                    fontFamily: "'Cormorant Garamond', serif",
+                    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+                  }}
+                >
                 Aditya
               </motion.div>
             </div>
@@ -454,7 +456,16 @@ export default function App() {
               className="flex items-center border-l border-black/10 pl-3 pr-4 gap-3"
             >
               <motion.button layout onClick={(e) => { e.stopPropagation(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-black/40 hover:text-black transition-colors"><Layers className="w-5 h-5" /></motion.button>
-              <motion.button layout onClick={(e) => { e.stopPropagation(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="flex items-center gap-1.5 rounded-full bg-black px-4 py-2 text-[11px] font-black text-white">TALK</motion.button>
+              <motion.button 
+                layout 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={(e) => { e.stopPropagation(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} 
+                className="flex items-center gap-1.5 rounded-full bg-black px-4 py-2 text-[11px] font-black text-white group/btn shadow-lg hover:shadow-accent/20 transition-shadow"
+              >
+                <span>TALK</span>
+                <ArrowUpRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>
@@ -496,9 +507,21 @@ export default function App() {
                   initial={{ y: 20, rotate: -5, opacity: 0 }}
                   animate={{ y: 0, rotate: -5, opacity: 1 }}
                   transition={{ delay: 1 }}
-                  className="z-30 mt-[-25px] bg-accent px-6 py-3 rounded-full shadow-xl"
+                  className="z-30 mt-[-25px] bg-accent px-6 py-3 rounded-full shadow-xl relative group/badge"
                 >
-                  <p className="font-serif text-lg font-normal text-white italic whitespace-nowrap" style={{ fontFamily: "'La Belle Aurore', cursive" }}>Building the Future</p>
+                  <p className="font-serif text-lg font-normal text-white italic whitespace-nowrap relative z-10" style={{ fontFamily: "'La Belle Aurore', cursive" }}>Building the Future</p>
+                  <svg className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[80%] h-2 text-white/40" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <motion.path
+                      d="M0,5 Q25,0 50,5 T100,5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ delay: 1.5, duration: 1, ease: "easeInOut" }}
+                    />
+                  </svg>
                 </motion.div>
               </motion.div>
 
@@ -547,13 +570,13 @@ export default function App() {
         {/* HOW I WORK */}
         <motion.section className="mt-[120px] space-y-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/15 text-accent"><Sparkles className="h-5 w-5" /></div>
+            <div className="flex h-10 w-10 items-center justify-center rounded-[2.5rem] bg-accent/15 text-accent"><Sparkles className="h-5 w-5" /></div>
             <h2 className="font-display text-[36px] font-bold text-text-primary ios-heading">How I Work</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {HOW_I_WORK.map((w, i) => (
-              <div key={i} className="group rounded-[2rem] border border-border/40 bg-white/40 p-8 shadow-lg backdrop-blur-3xl transition-all hover:-translate-y-2 hover:border-accent/40">
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-white group-hover:bg-accent transition-colors"><w.icon className="h-5 w-5" /></div>
+              <div key={i} className="group rounded-[2.5rem] border border-border/40 bg-white/40 p-8 shadow-lg backdrop-blur-3xl transition-all hover:-translate-y-2 hover:border-accent/40">
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-[2.5rem] bg-black text-white group-hover:bg-accent transition-colors"><w.icon className="h-5 w-5" /></div>
                 <h3 className="font-display text-xl font-bold text-text-primary group-hover:text-accent transition-colors">{w.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-muted">{w.desc}</p>
               </div>
@@ -563,9 +586,19 @@ export default function App() {
 
         {/* EXPERIENCE SECTION */}
         <motion.section id="experience" variants={item} className="mt-[120px]">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/15 text-accent"><Briefcase className="h-5 w-5" /></div>
-            <h2 className="font-display text-[36px] font-bold text-text-primary ios-heading">Experience</h2>
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-[2.5rem] bg-accent/15 text-accent"><Briefcase className="h-5 w-5" /></div>
+              <h2 className="font-display text-[36px] font-bold text-text-primary ios-heading">Experience</h2>
+            </div>
+            <motion.div 
+              animate={{ y: [0, 5, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="hidden md:flex items-center gap-2 text-[8px] font-black uppercase tracking-widest text-text-muted"
+            >
+              <span>Scroll to Explore</span>
+              <ArrowUpRight className="w-3 h-3 rotate-90" />
+            </motion.div>
           </div>
           <div className="mt-10">
             <Suspense fallback={<div className="h-40 w-full animate-pulse rounded-3xl bg-white/5" />}>
