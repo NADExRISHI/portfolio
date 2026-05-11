@@ -258,6 +258,7 @@ const BIO_PARAGRAPHS = [
 import BorderGlow from "./components/BorderGlow";
 import { ContactBlock } from "./sections/Contact";
 import { CustomCursor } from "./components/CustomCursor";
+import Silk from "./components/Silk";
 
 const Background = () => {
   return (
@@ -453,8 +454,13 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex items-center border-l border-black/10 pl-3 pr-4 gap-3"
+              className="flex items-center border-l border-black/10 pl-3 pr-4 gap-3 relative overflow-hidden"
             >
+              {/* Scroll Progress Bar */}
+              <motion.div 
+                className="absolute bottom-0 left-0 h-[1px] bg-accent/40"
+                style={{ width: `${scrollProgress * 100}%` }}
+              />
               <motion.button layout onClick={(e) => { e.stopPropagation(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-black/40 hover:text-black transition-colors"><Layers className="w-5 h-5" /></motion.button>
               <motion.button 
                 layout 
@@ -493,13 +499,39 @@ export default function App() {
 
             {/* Center Column: Profile Hero */}
             <div className="flex flex-col items-center justify-center pt-5">
-              <motion.div variants={item} className="relative group flex flex-col items-center">
+              <motion.div 
+                variants={item} 
+                onMouseMove={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const x = (e.clientX - rect.left) / rect.width - 0.5;
+                  const y = (e.clientY - rect.top) / rect.height - 0.5;
+                  e.currentTarget.style.setProperty('--x', `${x * 20}deg`);
+                  e.currentTarget.style.setProperty('--y', `${y * -20}deg`);
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.setProperty('--x', '0deg');
+                  e.currentTarget.style.setProperty('--y', '0deg');
+                }}
+                className="relative group flex flex-col items-center"
+                style={{ perspective: "1000px" } as any}
+              >
+                {/* Visual Anchor - Photo */}
+                <div className="absolute -inset-20 z-0 pointer-events-none opacity-20 blur-[60px]">
+                  <Silk color="#8b5cf6" speed={1.5} scale={0.8} />
+                </div>
+                
                 {/* Glow Effect */}
                 <div className="absolute -inset-10 bg-accent/20 blur-[120px] rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-1000" />
                 
                 {/* Main Photo Container */}
-                <div className="relative h-[320px] w-[320px] md:h-[420px] md:w-[420px] overflow-hidden rounded-full border-[10px] border-white shadow-[0_40px_100px_rgba(0,0,0,0.3)] transition-all duration-700 hover:scale-[1.03]">
-                  <img src={PROFILE.avatarUrl} alt={PROFILE.name} className="h-full w-full object-cover object-top scale-[1.75] -translate-y-24" />
+                <div 
+                  className="relative h-[320px] w-[320px] md:h-[420px] md:w-[420px] overflow-hidden rounded-full border-[10px] border-white shadow-[0_40px_100px_rgba(0,0,0,0.3)] transition-all duration-200"
+                  style={{ 
+                    transform: "rotateX(var(--y, 0deg)) rotateY(var(--x, 0deg))",
+                    transformStyle: "preserve-3d"
+                  } as any}
+                >
+                  <img src={PROFILE.avatarUrl} alt={PROFILE.name} className="h-full w-full object-cover object-top scale-[1.75] -translate-y-24 transition-transform duration-700 group-hover:scale-[1.8]" />
                 </div>
 
                 {/* Badge Grouped Inside */}
