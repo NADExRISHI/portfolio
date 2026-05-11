@@ -12,8 +12,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "adityavpatili818@gmail.com",
-    href: "mailto:adityavpatili818@gmail.com",
+    value: "adityavpatil818@gmail.com",
+    href: "mailto:adityavpatil818@gmail.com",
   },
 
   {
@@ -54,7 +54,7 @@ export function ContactBlock() {
             <Card className="group relative overflow-hidden rounded-3xl border border-border/50 bg-background/45 p-6 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 sm:p-8">
               <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.04] via-transparent to-transparent" />
               <form
-                action="mailto:adityavpatili818@gmail.com"
+                action="mailto:adityavpatil818@gmail.com"
                 method="post"
                 encType="text/plain"
                 className="relative z-10 space-y-6"
@@ -67,6 +67,8 @@ export function ContactBlock() {
                     <Input
                       id="name"
                       name="name"
+                      required
+                      aria-required="true"
                       placeholder="Your name"
                       className="bg-[color:var(--surface)] transition-colors border-[color:var(--border)] text-[color:var(--text-primary)] placeholder:text-[color:var(--text-muted)] focus-visible:ring-[color:var(--accent)]"
                     />
@@ -79,6 +81,8 @@ export function ContactBlock() {
                       id="email"
                       name="email"
                       type="email"
+                      required
+                      aria-required="true"
                       placeholder="your.email@example.com"
                       className="bg-[color:var(--surface)] transition-colors border-[color:var(--border)] text-[color:var(--text-primary)] placeholder:text-[color:var(--text-muted)] focus-visible:ring-[color:var(--accent)]"
                     />
@@ -110,7 +114,11 @@ export function ContactBlock() {
                   />
                 </div>
 
-                <Button type="submit" className="w-full gap-2 text-base rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-2.5 font-medium text-[color:var(--text-primary)] shadow-sm backdrop-blur-md cursor-pointer hover:bg-[color:var(--accent)] hover:text-white transition-all">
+                <Button 
+                  type="submit" 
+                  aria-label="Send your message to Aditya"
+                  className="w-full gap-2 text-base rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-2.5 font-medium text-[color:var(--text-primary)] shadow-sm backdrop-blur-md cursor-pointer hover:bg-[color:var(--accent)] hover:text-white transition-all"
+                >
                   Send Message
                   <Send className="h-4 w-4" />
                 </Button>

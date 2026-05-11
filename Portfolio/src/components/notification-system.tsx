@@ -81,7 +81,6 @@ type NotificationBarProps = {
     type: NotificationType;
     notificationId: string;
     onDismiss: () => void;
-    prefersReducedMotion: boolean;
 };
 
 export function NotificationBar({
@@ -89,7 +88,6 @@ export function NotificationBar({
     type,
     notificationId,
     onDismiss,
-    prefersReducedMotion,
 }: NotificationBarProps) {
     const [isExpanded, setIsExpanded] = useState(false);
     const {
@@ -230,7 +228,6 @@ export function NotificationOverlay({
                             type={notification.type}
                             notificationId={notification.id}
                             onDismiss={() => removeNotification(notification.id)}
-                            prefersReducedMotion={false}
                         />
                     );
                 })}

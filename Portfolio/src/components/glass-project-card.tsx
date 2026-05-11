@@ -29,15 +29,21 @@ export function GlassProjectCard({
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            whileHover={{ 
+                rotateX: 4, 
+                rotateY: 4, 
+                scale: 1.03,
+                transition: { type: "spring", stiffness: 400, damping: 25 }
+            }}
             transition={{ duration: 0.4 }}
-            className={cn("w-full", className)}
+            className={cn("w-full perspective-1000", className)}
         >
-            <Card className="group relative h-full flex flex-col overflow-hidden rounded-2xl border-border/50 bg-card/30 backdrop-blur-md transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
+            <Card className="group relative h-full flex flex-col overflow-hidden rounded-[2.5rem] border-border/40 bg-card/40 backdrop-blur-xl transition-all duration-500 hover:border-primary/40 hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)] transform-style-3d">
                 {/* Image Section */}
                 <div className="relative aspect-[16/9] overflow-hidden shrink-0">
                     <motion.img
                         src={image}
-                        alt={title}
+                        alt={`Preview of project: ${title}`}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40" />
