@@ -12,14 +12,14 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "adityavpatil818@gmail.com",
-    href: "mailto:adityavpatil818@gmail.com",
+    value: "rishikeshpatil82777@gmail.com",
+    href: "mailto:rishikeshpatil82777@gmail.com",
   },
 
   {
     icon: MapPin,
     label: "Location",
-    value: "Belgaum, India",
+    value: "Belagavi, India",
     href: "#",
   },
 ];
@@ -54,7 +54,7 @@ export function ContactBlock() {
             <Card className="group relative overflow-hidden rounded-[2.5rem] border border-border/50 bg-background/45 p-6 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 sm:p-8">
               <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.04] via-transparent to-transparent" />
               <form
-                action="mailto:adityavpatil818@gmail.com"
+                action="mailto:rishikeshpatil82777@gmail.com"
                 method="post"
                 encType="text/plain"
                 className="relative z-10 space-y-6"
@@ -116,7 +116,7 @@ export function ContactBlock() {
 
                 <Button 
                   type="submit" 
-                  aria-label="Send your message to Aditya"
+                  aria-label="Send your message to Rishikesh"
                   className="w-full gap-2 text-base rounded-full border border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-2.5 font-medium text-[color:var(--text-primary)] shadow-sm backdrop-blur-md cursor-pointer hover:bg-[color:var(--accent)] hover:text-white transition-all"
                 >
                   Send Message

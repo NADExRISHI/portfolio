@@ -26,233 +26,130 @@ import Lenis from "lenis";
 const AnimatedList = lazy(() => import("./components/AnimatedList"));
 
 const PROFILE = {
-  name: "Aditya Patil",
-  title: "AI Developer | Multi-Agent Orchestration | RL & Cognitive Architectures",
+  name: "Rishikesh Patil",
+  title: "Engineering Student | Startup Enthusiast | Mobility Innovator",
   summary:
-    "Highly technical AI Developer & IEEE Student Branch Chair (2026) with a focus on Multi-Agent Orchestration, Reinforcement Learning, and Applied Cognitive Architectures. Proven track record of building production-ready AI environments and long-term memory systems.",
-  location: "Belgaum, India",
-  email: "adityavpatil818@gmail.com",
-  phone: "+91 815284 5070",
-  avatarUrl: "/Adi.jpg",
-  initials: "AP",
+    "I’m a passionate engineering student who enjoys combining technology, creativity, and business thinking to build impactful ideas.",
+  location: "Belagavi, India",
+  email: "rishikeshpatil82777@gmail.com",
+  phone: "+91 8277747242",
+  avatarUrl: "/profile.jpg",
+  initials: "RP",
   socials: [
-    { name: "GitHub", icon: Github, url: "https://github.com/Nadex19-Adi" },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://www.linkedin.com/in/aditya-patil-77aab2352/",
+      url: "https://www.linkedin.com/in/rishikesh-patil-486421389?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     },
     { name: "Portfolio", icon: Globe, url: "#" },
   ],
 };
 
 const STATS = [
-  { label: "Systems Engineered", value: "12+" },
-  { label: "Research Projects", value: "4" },
-  { label: "AI Frameworks", value: "6+" },
-  { label: "Publications", value: "2" },
+  { label: "Projects Built", value: "2+" },
+  { label: "Startup Concepts", value: "3+" },
+  { label: "Tech Stacks", value: "2+" },
+  { label: "Current Sem", value: "2nd" },
 ];
 
 const EXPERIENCE = [
   {
-    role: "Chair",
-    company: "IEEE Student Branch JCER",
-    period: "2026 - 2027",
-    location: "Belgaum",
+    role: "B.Tech in Electronics & Communication Engineering (ECE)",
+    company: "Gogte Institute of Technology",
+    period: "2nd Sem",
+    location: "Belagavi",
     highlights: [
-      "Leading the student branch for 2026 as the Chair.",
-      "Organizing and managing technical activities, student life, and volunteer functions."
-    ],
-  },
-  {
-    role: "Technical Committee (LEAD)",
-    company: "IEEE North Karnataka Sub Section SAC (NKSS SAC)",
-    period: "2026 - 2027",
-    location: "North Karnataka",
-    highlights: [
-      "Working as a LEAD in the technical committee, Students Association Committee (SAC) under IEEE North Karnataka Subsection.",
-      "Organizing and managing technical activities, student life, and volunteer functions throughout the region."
-    ]
-  },
-  {
-    role: "Co-Lead (Technical Committee)",
-    company: "IEEE North Karnataka Sub-Section (NKSS)",
-    period: "2025 - 2026",
-    location: "North Karnataka",
-    highlights: [
-      "Worked as Co-Lead in the technical committee, Students Association Committee (SAC) under IEEE North Karnataka Subsection.",
-      "Organized and managed technical activities, student life, and volunteer functions throughout the region."
-    ],
-  },
-  {
-    role: "B.Tech in Computer Science & Engineering (AIML)",
-    company: "Jain College of Engineering and Research",
-    period: "7.7 CGPA",
-    location: "Belgaum",
-    highlights: [
-      "Currently pursuing B.Tech with focus on Artificial Intelligence and Machine Learning.",
-      "Leading technical and volunteer initiatives across the university."
+      "Currently pursuing B.Tech in ECE.",
+      "Deeply interested in mobility systems, startup innovation, and solving real-world problems.",
+      "Learning to combine technology, creativity, and business thinking to build impactful ideas."
     ]
   }
 ];
 
 const PROJECTS = [
   {
-    name: "MemoryForm",
-    tech: ["Python", "FastAPI", "Supabase", "React"],
-    desc: "AI Long-Term Memory Engine solving LLM amnesia using integrated Sentence-Transformers and a custom weighted ranking algorithm.",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
-    githubUrl: "https://github.com/Nadex19-Adi",
-    stars: 10,
+    name: "Smart Emergency Street Light",
+    tech: ["C", "Hardware"],
+    desc: "An intelligent street lighting system designed to enhance safety and energy efficiency during emergencies by automating light intensity based on environmental conditions.",
+    image: "https://images.unsplash.com/photo-1494452672938-ad7f60625bb4?auto=format&fit=crop&q=80&w=800",
+    githubUrl: "#",
+    stars: 5,
     metrics: {
-      "Architecture": "Multi-Agent",
-      "Storage": "Hybrid PostgreSQL",
-      "Embeddings": "all-MiniLM-L6-v2",
-      "Features": "Recency & Confidence",
-      "Status": "Production"
+      "Focus": "Energy Efficiency",
+      "Type": "Smart Systems",
+      "Status": "Completed"
     }
   },
   {
-    name: "Bhasha AI",
-    tech: ["LangGraph", "LangChain", "Transformers"],
-    desc: "Architected a 6-agent translation workflow that handles technical glossary injection, cultural adaptation, and sentiment alignment.",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800",
-    githubUrl: "https://github.com/Nadex19-Adi",
-    stars: 12,
+    name: "Mini Drone",
+    tech: ["Python", "Aerodynamics"],
+    desc: "A compact drone project focusing on mobility, control systems, and practical applications in transport. Built to explore tech-driven mobility solutions.",
+    image: "https://images.unsplash.com/photo-1579822989524-2c700cb92c2f?auto=format&fit=crop&q=80&w=800",
+    githubUrl: "#",
+    stars: 8,
     metrics: {
-      "Scale": "6-Agent Workflow",
-      "Domain": "Localization",
-      "Quality": "High-fidelity",
-      "Status": "Production"
-    }
-  },
-  {
-    name: "SupportEnv",
-    tech: ["FastAPI", "Stable Baselines3", "Gradio", "OpenEnv"],
-    desc: "Built a production-grade Reinforcement Learning environment to train AI agents on high-stress support tickets.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
-    githubUrl: "https://github.com/Nadex19-Adi",
-    stars: 18,
-    metrics: {
-      "Type": "RL Environment",
-      "Target": "Support Tickets",
-      "Grader": "Sentiment & Accuracy",
-      "Status": "Production"
-    }
-  },
-  {
-    name: "Disaster Management",
-    tech: ["CrewAI", "Streamlit", "Transformers"],
-    desc: "Multi-agent emergency orchestrator coordinating five specialized agents for incident triage and resource management.",
-    image: "/disaster.png",
-    githubUrl: "https://github.com/Nadex19-Adi",
-    stars: 15,
-    metrics: {
-      "Architecture": "5-Agent Crew",
-      "NLP Focus": "Zero-shot RoBERTa",
-      "Task": "Incident Triage",
-      "Status": "Prototype"
-    }
-  },
-  {
-    name: "Cloud Cost Optimization",
-    tech: ["Python", "ARIMA", "LSTM", "K-Means"],
-    desc: "Hybrid cost-optimization engine that achieved a 28% reduction in cloud over-provisioning costs by accurately classifying machine workloads.",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800",
-    githubUrl: "https://github.com/Nadex19-Adi",
-    stars: 15,
-    metrics: {
-      "Cost Focus": "28% Reduction",
-      "Architecture": "Hybrid Engine",
-      "Dataset": "Google Cluster Trace",
-      "Status": "Research"
-    }
-  },
-  {
-    name: "Elevare Platform",
-    tech: ["React", "Flask", "Gemini 2.5", "Supabase"],
-    desc: "AI-driven job matching platform featuring an automated ATS scoring engine and domain-specific recommendations.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800",
-    githubUrl: "https://github.com/Nadex19-Adi",
-    stars: 20,
-    metrics: {
-      "Matching": "Domain-Specific",
-      "Analysis": "Automated ATS",
-      "Platform": "Vercel Hosted",
-      "Status": "Production"
-    }
-  },
-  {
-    name: "Agri-Sethu (SIH)",
-    tech: ["Streamlit", "Scikit", "MongoDB", "SoilGrids"],
-    desc: "Smart crop recommendation system reducing fertilizer waste and improving yield prediction accuracy by 18%.",
-    image: "/crop.png",
-    githubUrl: "https://github.com/Nadex19-Adi",
-    stars: 15,
-    metrics: {
-      "Accuracy": "18% Improvement",
-      "Geospatial": "ISRO Bhuvan Maps",
-      "Database": "MongoDB",
-      "Status": "Hackathon"
+      "Focus": "Mobility",
+      "Type": "Hardware",
+      "Status": "Completed"
     }
   }
 ];
 
 const SKILL_CATEGORIES = [
   {
-    title: "AI & ML Frameworks",
-    skills: ["LangChain", "Transformers", "HuggingFace", "Scikit-Learn", "Reinforcement Learning", "CrewAI", "LangGraph"]
+    title: "Programming",
+    skills: ["C", "Python"]
   },
   {
-    title: "Languages",
-    skills: ["Python", "SQL", "Bash", "C/C++", "TypeScript", "JavaScript"]
+    title: "Tools & Design",
+    skills: ["Canva"]
   },
   {
-    title: "Full-Stack & Backend",
-    skills: ["React 18", "Vite", "FastAPI", "Streamlit", "Node.js", "Supabase", "Flask", "Docker"]
+    title: "Business & Strategy",
+    skills: ["Team Leadership", "Communication", "Startup Strategy", "Product Thinking"]
   }
 ];
 
 const HOW_I_WORK = [
   {
-    title: "Think in Systems",
-    desc: "I break complex problems into controllable subsystems, design for failure cases early, and engineer with scalability in mind.",
-    icon: Layers,
+    title: "Think Beyond the Obvious",
+    desc: "I enjoy exploring ideas from a bigger perspective and finding smarter, more scalable ways to solve problems instead of following conventional approaches.",
+    icon: Sparkles,
   },
   {
-    title: "Build What Others Avoid",
-    desc: "I deliberately choose technically uncomfortable projects — the kind that force rapid growth and differentiate me from the average engineer.",
-    icon: ArrowUpRight,
-  },
-  {
-    title: "Execution > Motivation",
-    desc: "Consistency, structured learning, and aggressive iteration drive my progress more than temporary inspiration.",
-    icon: Briefcase,
-  },
-  {
-    title: "Engineer for Reality",
-    desc: "I prioritize reliability, measurable performance, and deployment-readiness over demo-friendly builds.",
+    title: "User Experience Comes First",
+    desc: "Whether it’s a tech product, mobility system, or service idea, I focus on creating experiences that feel smooth, practical, and comfortable for the end user.",
     icon: Globe,
   },
   {
-    title: "Relentless Improvement",
-    desc: "After every build, I analyze bottlenecks, skill gaps, and architectural mistakes — then upgrade.",
-    icon: Sparkles,
+    title: "Build with Purpose",
+    desc: "I believe every project should solve a real problem or improve an existing system in a meaningful way rather than just looking impressive.",
+    icon: Briefcase,
+  },
+  {
+    title: "Learn, Adapt, Improve",
+    desc: "I continuously explore new technologies, trends, and business models to improve my skills and stay adaptable in a fast-changing tech world.",
+    icon: ArrowUpRight,
+  },
+  {
+    title: "Systems Over Shortcuts",
+    desc: "I prefer structured thinking, planning, and long-term scalability over temporary fixes, because strong systems create reliable results.",
+    icon: Layers,
   },
 ];
 
 const TECHNICAL_FOCUS = [
-  "Multi-Agent Orchestration & Cognitive Architectures",
-  "Reinforcement Learning Environments (OpenEnv Specs)",
-  "Full-Stack Development (React, FastAPI, Supabase)",
-  "Research-Focused Optimization (Cost, Pathing, Classification)",
-  "Leadership & Strategic Community Management",
+  "Mobility & Transport Innovation",
+  "Startup Strategy & Product Thinking",
+  "UI/UX & User Experience Concepts",
+  "Smart Systems & Service Design",
+  "Technology-Driven Business Solutions",
 ];
 
 const BIO_PARAGRAPHS = [
-  "I am a highly technical AI Developer focusing on Multi-Agent Orchestration, Reinforcement Learning, and Applied Cognitive Architectures. I build production-ready AI environments, such as SupportEnv, and design long-term memory systems for intelligent agents.",
-  "In addition to my technical work, I actively serve as the IEEE Student Branch Chair (2026), leading technical committees and organizing regional activities across the North Karnataka and Bangalore Sections. My core expertise spans Python, React, FastAPI, and Supabase, empowering me to tackle everything from robust AI pipelines to full-stack web platforms.",
-  "Whether I'm reducing cloud infrastructure costs by 28%, architecting complex 6-agent language translation pipelines, or leading technical communities, I prioritize execution, measurable performance, and real-world impact."
+  "I’m a passionate engineering student who enjoys combining technology, creativity, and business thinking to build impactful ideas. I’m deeply interested in mobility systems, startup innovation, and solving real-world problems through smart and scalable solutions. From designing futuristic transport concepts to exploring tech-driven business models, I enjoy turning ideas into structured projects.",
+  "My journey started with curiosity around how modern systems work — from apps and user experience to transportation and operations. Over time, that curiosity evolved into building concepts like premium transit systems, EV battery delivery networks, and smart service-based solutions. I love learning new technologies, analyzing market trends, and thinking about how technology can improve everyday experiences.",
+  "My goal is to grow as a tech-driven entrepreneur and engineer who can build innovative products, scalable businesses, and premium user-focused systems. I aim to work on projects that combine engineering, technology, and strategy to create solutions that are practical, efficient, and future-ready."
 ];
 
 import BorderGlow from "./components/BorderGlow";
@@ -342,7 +239,7 @@ export default function App() {
                 className="font-serif text-8xl font-medium text-black/5 tracking-[0.04em]"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
-                Aditya
+                Rishikesh
               </motion.div>
               <motion.div
                 initial={{ width: 0 }}
@@ -354,7 +251,7 @@ export default function App() {
                   clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
                 }}
               >
-                Aditya
+                Rishikesh
               </motion.div>
             </div>
             <motion.div 
@@ -458,7 +355,7 @@ export default function App() {
                 <div className="font-display text-[15vw] leading-none whitespace-nowrap">ENGINEERING</div>
                 <div className="font-display text-[15vw] leading-none whitespace-nowrap mt-[-5vw]">THE FUTURE</div>
               </div>
-              <h1 className="sr-only">Aditya Patil — AI Developer & Cognitive Architect</h1>
+              <h1 className="sr-only">Rishikesh Patil — Engineering Student & Innovator</h1>
               <div className="relative z-20 grid grid-cols-1 lg:grid-cols-[1.2fr_2fr_1.2fr] items-center gap-12 w-full max-w-[1200px]">
                 <div className="hidden lg:flex flex-col gap-12">
                   <div className="space-y-4">
@@ -481,7 +378,7 @@ export default function App() {
                   }} className="relative group flex flex-col items-center" style={{ perspective: "1000px" } as any}>
                     <div className="absolute -inset-10 bg-accent/20 blur-[120px] rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-1000" />
                     <div className="relative h-[320px] w-[320px] md:h-[420px] md:w-[420px] overflow-hidden rounded-full border-[10px] border-white shadow-[0_40px_100px_rgba(0,0,0,0.3)] transition-all duration-200" style={{ transform: "rotateX(var(--y, 0deg)) rotateY(var(--x, 0deg))", transformStyle: "preserve-3d" } as any}>
-                      <img src={PROFILE.avatarUrl} alt={PROFILE.name} className="h-full w-full object-cover object-top scale-[1.75] -translate-y-24 transition-transform duration-700 group-hover:scale-[1.8]" />
+                      <img src={PROFILE.avatarUrl} alt={PROFILE.name} className="h-full w-full object-cover scale-[1.22] -translate-x-[11%] translate-y-[10%] transition-transform duration-700 group-hover:scale-[1.3]" style={{ objectPosition: '90% 15%' }} />
                     </div>
                     <motion.div initial={{ y: 20, rotate: -5, opacity: 0 }} animate={{ y: 0, rotate: -5, opacity: 1 }} transition={{ delay: 1 }} className="z-30 mt-[-25px] bg-accent px-6 py-3 rounded-full shadow-xl relative group/badge">
                       <p className="font-signature text-2xl font-normal text-white whitespace-nowrap relative z-10">Building the Future</p>
@@ -505,8 +402,8 @@ export default function App() {
                 <div className="hidden lg:flex flex-col gap-12 items-end text-right">
                   <div className="space-y-4">
                     <p className="text-[11px] font-black uppercase tracking-[0.4em] text-text-muted opacity-40">Connect</p>
-                    {['GITHUB', 'LINKEDIN', 'RESUME', 'EMAIL'].map((s) => (
-                      <motion.a key={s} href={s === 'EMAIL' ? `mailto:${PROFILE.email}` : s === 'GITHUB' ? PROFILE.socials[0].url : s === 'LINKEDIN' ? PROFILE.socials[1].url : s === 'RESUME' ? '/Aditya_Patil_Resume.pdf' : '#'} target="_blank" download={s === 'RESUME' ? 'Aditya_Patil_Resume.pdf' : undefined} whileHover={{ x: -12, color: 'var(--accent)' }} className="block font-display text-5xl font-black tracking-tighter text-text-primary transition-colors">{s}</motion.a>
+                    {['LINKEDIN', 'RESUME', 'EMAIL'].map((s) => (
+                      <motion.a key={s} href={s === 'EMAIL' ? `mailto:${PROFILE.email}` : s === 'LINKEDIN' ? PROFILE.socials[0].url : s === 'RESUME' ? '/Rishikesh_Patil_Resume.pdf' : '#'} target="_blank" download={s === 'RESUME' ? 'Rishikesh_Patil_Resume.pdf' : undefined} whileHover={{ x: -12, color: 'var(--accent)' }} className="block font-display text-5xl font-black tracking-tighter text-text-primary transition-colors">{s}</motion.a>
                     ))}
                   </div>
                 </div>
@@ -615,7 +512,7 @@ export default function App() {
           <footer className="relative z-10 border-t border-border/40 bg-white/5 py-12 backdrop-blur-xl">
             <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-8 md:flex-row">
               <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-text-muted order-2 md:order-1 items-center">
-                <span className="font-serif italic capitalize tracking-normal text-sm">© 2026 Aditya Patil</span>
+                <span className="font-serif italic capitalize tracking-normal text-sm">© 2026 Rishikesh Patil</span>
                 <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
                 <a href="#" className="hover:text-accent transition-colors">Terms of Service</a>
               </div>
