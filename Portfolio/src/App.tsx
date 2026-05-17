@@ -402,8 +402,8 @@ export default function App() {
                 <div className="hidden lg:flex flex-col gap-12 items-end text-right">
                   <div className="space-y-4">
                     <p className="text-[11px] font-black uppercase tracking-[0.4em] text-text-muted opacity-40">Connect</p>
-                    {['LINKEDIN', 'RESUME', 'EMAIL'].map((s) => (
-                      <motion.a key={s} href={s === 'EMAIL' ? `mailto:${PROFILE.email}` : s === 'LINKEDIN' ? PROFILE.socials[0].url : s === 'RESUME' ? '/Rishikesh_Patil_Resume.pdf' : '#'} target="_blank" download={s === 'RESUME' ? 'Rishikesh_Patil_Resume.pdf' : undefined} whileHover={{ x: -12, color: 'var(--accent)' }} className="block font-display text-5xl font-black tracking-tighter text-text-primary transition-colors">{s}</motion.a>
+                    {['LINKEDIN', 'EMAIL'].map((s) => (
+                      <motion.a key={s} href={s === 'EMAIL' ? `mailto:${PROFILE.email}` : s === 'LINKEDIN' ? PROFILE.socials[0].url : '#'} target="_blank" whileHover={{ x: -12, color: 'var(--accent)' }} className="block font-display text-5xl font-black tracking-tighter text-text-primary transition-colors">{s}</motion.a>
                     ))}
                   </div>
                 </div>
