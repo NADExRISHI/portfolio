@@ -281,6 +281,13 @@
   justify-content: center;
 }
 
+.vc-qr-image {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+}
+
 .vc-qr-hint {
   font-size: 11px;
   font-weight: 500;
