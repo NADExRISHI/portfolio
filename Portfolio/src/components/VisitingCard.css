@@ -1,0 +1,346 @@
+/* ═══════════════════════════════════════════════════
+   VisitingCard — Matches website light theme + 3D tilt
+   ═══════════════════════════════════════════════════ */
+
+/* ── Wrapper ────────────────────────────────────────── */
+.vc-wrapper {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card ──────────────────────────────────────────── */
+.vc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 40px 24px 32px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px);
+  border-radius: 28px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.vc-card:hover {
+  box-shadow:
+    0 8px 40px rgba(139, 92, 246, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset;
+}
+
+.vc-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(139, 92, 246, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* ── Avatar ────────────────────────────────────────── */
+@keyframes vc-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(139, 92, 246, 0.2),
+      0 0 40px rgba(139, 92, 246, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 28px rgba(139, 92, 246, 0.35),
+      0 0 56px rgba(139, 92, 246, 0.15);
+  }
+}
+
+@keyframes vc-border-spin {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+.vc-avatar-ring {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  padding: 4px;
+  margin: 0 auto;
+  background: conic-gradient(
+    from 0deg,
+    #8b5cf6,
+    rgba(139, 92, 246, 0.3),
+    #8b5cf6,
+    rgba(139, 92, 246, 0.3),
+    #8b5cf6
+  );
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.2),
+    0 0 40px rgba(139, 92, 246, 0.08);
+  position: relative;
+  z-index: 1;
+  animation: vc-glow-pulse 3s ease-in-out infinite;
+}
+
+.vc-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+/* ── Name & Subtitle ───────────────────────────────── */
+.vc-name {
+  font-family: "Outfit", "Inter", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0f0f14;
+  text-align: center;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.vc-subtitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #8b5cf6;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin: -8px 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Action Buttons ────────────────────────────────── */
+.vc-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.vc-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(139, 92, 246, 0.06);
+  color: #0f0f14;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.vc-action-btn:hover {
+  background: rgba(139, 92, 246, 0.14);
+  border-color: rgba(139, 92, 246, 0.4);
+  color: #6d28d9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.12);
+}
+
+.vc-action-icon {
+  width: 20px;
+  height: 20px;
+  color: #8b5cf6;
+  flex-shrink: 0;
+}
+
+.vc-action-btn--resume {
+  border-color: rgba(139, 92, 246, 0.2);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+/* ── Social Icons Row ──────────────────────────────── */
+.vc-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(139, 92, 246, 0.03);
+  position: relative;
+  z-index: 1;
+}
+
+.vc-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(139, 92, 246, 0.06);
+  color: rgba(15, 15, 20, 0.55);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.vc-social-btn:hover {
+  background: rgba(139, 92, 246, 0.14);
+  border-color: rgba(139, 92, 246, 0.4);
+  color: #8b5cf6;
+  transform: scale(1.1);
+}
+
+.vc-social-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── QR Code Toggle ──────────────────────────────── */
+.vc-qr-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(139, 92, 246, 0.04);
+  color: rgba(15, 15, 20, 0.6);
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.vc-qr-toggle:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #8b5cf6;
+}
+
+.vc-qr-toggle-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ── QR Code Display ─────────────────────────────── */
+@keyframes vc-qr-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.vc-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  animation: vc-qr-fade-in 0.3s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+.vc-qr-box {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vc-qr-hint {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(15, 15, 20, 0.45);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* ── Save Contact Button ───────────────────────────── */
+.vc-save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.1),
+    rgba(139, 92, 246, 0.05)
+  );
+  color: #8b5cf6;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.vc-save-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.2),
+    rgba(139, 92, 246, 0.12)
+  );
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
+}
+
+.vc-save-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 420px) {
+  .vc-wrapper {
+    max-width: 100%;
+  }
+
+  .vc-card {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding: 32px 20px 24px;
+  }
+}

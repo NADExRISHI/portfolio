@@ -11,6 +11,7 @@ import {
   Mail,
   MapPin,
   Sparkles,
+  User,
 } from "lucide-react";
 
 import {
@@ -154,6 +155,7 @@ const BIO_PARAGRAPHS = [
 
 import BorderGlow from "./components/BorderGlow";
 import { ContactBlock } from "./sections/Contact";
+import { VisitingCardSection } from "./sections/VisitingCardSection";
 import { CustomCursor } from "./components/CustomCursor";
 import Silk from "./components/Silk";
 
@@ -318,6 +320,7 @@ export default function App() {
                     { id: 'experience', icon: Briefcase },
                     { id: 'projects', icon: Layers },
                     { id: 'skills', icon: Sparkles },
+                    { id: 'vcard', icon: User },
                     { id: 'contact', icon: Mail },
                   ].map((nav) => (
                     <motion.button
@@ -339,6 +342,7 @@ export default function App() {
                 <motion.div layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center border-l border-black/10 pl-3 pr-4 gap-3 relative overflow-hidden">
                   <motion.div className="absolute bottom-0 left-0 h-[1px] bg-accent/40" style={{ width: `${scrollProgress * 100}%` }} />
                   <motion.button layout onClick={(e) => { e.stopPropagation(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-black/40 hover:text-black transition-colors"><Layers className="w-5 h-5" /></motion.button>
+                  <motion.button layout onClick={(e) => { e.stopPropagation(); document.getElementById('vcard')?.scrollIntoView({ behavior: 'smooth' }); }} className="text-black/40 hover:text-black transition-colors"><User className="w-5 h-5" /></motion.button>
                   <motion.button layout whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={(e) => { e.stopPropagation(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }} className="flex items-center gap-1.5 rounded-full bg-black px-4 py-2 text-[11px] font-black text-white group/btn shadow-lg hover:shadow-accent/20 transition-shadow">
                     <span>TALK</span>
                     <ArrowUpRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
@@ -505,6 +509,8 @@ export default function App() {
                 ))}
               </div>
             </motion.section>
+
+            <VisitingCardSection />
 
             <ContactBlock />
           </main>
